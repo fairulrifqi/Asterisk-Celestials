@@ -1,0 +1,83 @@
+Library used:
+Pandas
+NumPy
+SeaBorn
+MatPlotLib
+SciPy
+SKLearn
+RegEx
+StatModels
+ImbLearn
+XGBoost
+JobLib
+StreamLit
+
+Data used:
+1. 'df' for employees' general data
+2. 'df_employee_survey' for employees' survey data for the office
+3. 'df_manager_survey' for managers' survey data for the employees
+4. 'df_in_time' containing the data of the time the employees arrived at the office
+5. 'df_out_time' containing the data of the time they left the office
+6. 'df_working_hours' containing the number of hours the employees spent at the office (u can get automatically by the mounting, or extract it manually by the process)
+
+Simplified Data:
+1. 'df' for employees' general data
+2. 'df_employee_survey' for employees' survey data for the office
+3. 'df_manager_survey' for managers' survey data for the employees
+4. 'df_working_hours' containing number of hours the employees spent at the office (u can get automatically by the mounting, or extract it manually by the process)
+
+Merge all those data.
+
+Target = y = Attrition
+Features = x = all features not named Attrition
+
+Data splitting into data train (80%) and data test (20%)
+
+Data preprocessing:
+A. Duplicates
+Found: 1
+Handling method: drop
+
+B. Missing values
+Found: 
+1. Num type
+NumCompaniesWorked 16 
+TotalWorkingYears 6
+2. Cat type
+EnvironmentSatisfication 21
+JobSatisfication 17
+WorkLifeBalance 30
+Handling method: median imputation for num type features and mode imputation for cat type features.
+
+Features selection:
+Partial significance test (alpha = 0.05)
+h0: the feature doesn't influence the target significantly
+h1: the feature influences the target significantly
+Decision making: take h1 if p-value of the feature is less than alpha
+
+Advanced data preprocessing
+A. Ouliers
+Handling method: log transformation and robust scaling
+B. Data encode
+One-hot encoding for nominal categoric features and ordinal encoding for ordinal categoric features
+C. Data balancing
+Oversampling using SMOTENC
+
+Final data obtained.
+
+Model application.
+Applied models:
+Logistic Regression
+Random forest
+XGBoost
+Decision tree
+Gradient boosting
+Naive Bayes
+SVM
+KNN
+Ada boost
+
+Best model:
+Random forest
+
+To see more, check the .ipynb file
