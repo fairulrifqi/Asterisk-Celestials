@@ -46,7 +46,7 @@ def to_excel(df):
     processed_data = output.getvalue()
     return processed_data
 
-st.title(":bar_chart: Aesterik")
+st.title(":bar_chart: Asterisk Celestials")
 st.write("By: Bhima Fairul Rifqi")
 st.link_button("LinkedIn Profile", "https://linkedin.com/in/fairulrifqi962")
 st.divider()
