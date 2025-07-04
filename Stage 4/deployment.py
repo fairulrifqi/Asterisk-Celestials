@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import statistics as stats
-import seaborn as sns
+import seaborn
 import matplotlib.pyplot as plt
 import scipy.stats as sx
 import math
