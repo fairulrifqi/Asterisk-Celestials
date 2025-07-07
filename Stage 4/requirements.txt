@@ -8,3 +8,5 @@ regex
 streamlit
 joblib
 xlsxwriter
+seaborn
+matplotlib
