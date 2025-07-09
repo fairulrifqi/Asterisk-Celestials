@@ -15,7 +15,8 @@ def load_model():
 model = load_model()
 
 # --- Download Template ---
-st.title("🧠 Machine Learning Model Deployment")
+st.title("Employee Attrition Predictor")
+st.write("by: Asterisk Celestials | Team 5")
 
 st.markdown("### 1. Unduh Template Input")
 with open("User_Template.xlsx", "rb") as file:
