@@ -1,12 +1,5 @@
-pandas
-numpy
-statsmodels==0.14.4
-scipy==1.15.3
-seaborn
-matplotlib
-scikit-learn
-statsmodels
-regex
 streamlit
+pandas
 joblib
-xlsxwriter
+numpy
+sklearn
