@@ -18,15 +18,15 @@ model = load_model()
 st.title("🧠 Machine Learning Model Deployment")
 
 st.markdown("### 1. Unduh Template Input")
-with open("User_Template.csv", "rb") as file:
+with open("User_Template.xlsx", "rb") as file:
     st.download_button(label="📥 Download Template",
                        data=file,
-                       file_name="input_template.csv",
+                       file_name="input_template.xlsx",
                        mime="text/csv")
 
 # --- Upload File ---
 st.markdown("### 2. Upload File Data")
-uploaded_file = st.file_uploader("Unggah file CSV sesuai template", type=["csv"])
+uploaded_file = st.file_uploader("Unggah file CSV sesuai template", type=["csv", "xlsx"])
 
 # --- Predict Button ---
 if uploaded_file:
