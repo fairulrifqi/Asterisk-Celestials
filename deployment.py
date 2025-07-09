@@ -15,19 +15,18 @@ def load_model():
 model = load_model()
 
 # --- Download Template ---
-st.title("Employee Attrition Predictor")
-st.write("by: Asterisk Celestials | Team 5")
+st.title("🧠 Machine Learning Model Deployment")
 
 st.markdown("### 1. Unduh Template Input")
-with open("User_Template.xlsx", "rb") as file:
+with open("User_Template.csv", "rb") as file:
     st.download_button(label="📥 Download Template",
                        data=file,
-                       file_name="input_template.xlsx",
+                       file_name="input_template.csv",
                        mime="text/csv")
 
 # --- Upload File ---
 st.markdown("### 2. Upload File Data")
-uploaded_file = st.file_uploader("Unggah file CSV sesuai template", type=["csv", "xlsx"])
+uploaded_file = st.file_uploader("Unggah file CSV sesuai template", type=["csv"])
 
 # --- Predict Button ---
 if uploaded_file:
@@ -49,21 +48,38 @@ if uploaded_file:
                                    'JobSatisfaction', 'WorkLifeBalance']
             ohe_columns = ['Department', 'EducationField', 'JobRole', 'MaritalStatus']
 
+            # --- Imputasi numerik: median ---
+            for col in num_columns:
+                if df_input[col].isnull().any():
+                    median_value = df_input[col].median()
+                    df_input[col] = df_input[col].fillna(median_value)
+
+            # --- Imputasi kategorikal: modus ---
+            for col in ordinal_cat_columns + ohe_columns:
+                if df_input[col].isnull().any():
+                    mode_value = df_input[col].mode(dropna=True)[0]
+                    df_input[col] = df_input[col].fillna(mode_value)
+
             # Custom Log Transformer
             class LogTransformer(BaseEstimator, TransformerMixin):
                 def fit(self, x, y=None): return self
                 def transform(self, x): return np.log1p(x)
 
+            # Pipeline numerik
             num_pipeline = Pipeline([
                 ('log', LogTransformer()),
                 ('scaler', RobustScaler())
             ])
 
+            # Encoder ordinal dengan urutan kategori otomatis dari data
+            ordinal_encoder = OrdinalEncoder(categories=[
+                sorted(df_input[col].unique().tolist()) for col in ordinal_cat_columns
+            ])
+
+            # Preprocessor gabungan
             preprocessor = ColumnTransformer(transformers=[
                 ('num', num_pipeline, num_columns),
-                ('ordinal', OrdinalEncoder(categories=[
-                    sorted(df_input[col].dropna().unique().tolist()) for col in ordinal_cat_columns
-                ]), ordinal_cat_columns),
+                ('ordinal', ordinal_encoder, ordinal_cat_columns),
                 ('ohe', OneHotEncoder(drop='first', handle_unknown='ignore'), ohe_columns)
             ])
 
