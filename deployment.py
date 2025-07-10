@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
-from pydantic import BaseModel
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import RobustScaler, OrdinalEncoder, OneHotEncoder
 from sklearn.pipeline import Pipeline
