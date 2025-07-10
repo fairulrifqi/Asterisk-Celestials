@@ -68,8 +68,8 @@
     Download Logs
         Download the current app.log file for offline review or auditing.
 
-Notes:
-0. Make sure all the files are located in the same environment.
-1. Ensure app.log is present and updated by the Prediction App for accurate monitoring.
-2. Keep your model file (tuned_classifier.pkl) in the working directory or update the path accordingly.
-3. Customize thresholds or metrics in the monitoring app as needed.
+3. Notes:
+    Make sure all the files are located in the same environment.
+    Ensure app.log is present and updated by the Prediction App for accurate monitoring.
+    Keep your model file (tuned_classifier.pkl) in the working directory or update the path accordingly.
+    3Customize thresholds or metrics in the monitoring app as needed.
