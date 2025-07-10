@@ -1,0 +1,75 @@
+0. Requirements Installation
+    Run:
+        pip install -r requirements.txt
+
+1. Prediction App
+    Purpose
+        Predict employee attrition based on user-uploaded data.
+        Provide detailed predictions and probability scores.        
+        Log prediction events and metrics for monitoring.
+    
+    How to Use
+        Launch the Prediction App        
+            Run the app locally or deploy on a server: 
+                streamlit run prediction_app.py
+        
+        Download Input Template        
+            Click the Download Template button to get the Excel template (input_template.xlsx).        
+            Fill in your employee data according to this template.
+        
+        Upload Employee Data        
+            Upload a CSV or Excel file matching the template.        
+            The app will display the uploaded data.
+        
+        Run Prediction        
+            Click the Predict button.        
+            The app preprocesses the data, runs the model, and displays results:        
+                Prediction (Stay or Leave)        
+                Probability of leaving
+        
+        Download the prediction results as CSV.        
+            Logging            
+            Every prediction action and performance metric is logged into app.log.            
+            Logs are used by the monitoring app to track model performance and data drift.
+
+2. Monitoring App
+    Purpose
+        Visualize prediction volumes, errors, and model performance metrics over time.        
+        Track data drift and alert on significant drift events.        
+        Provide downloadable logs for audit or further analysis.
+
+    How to Use
+        Launch the Monitoring App      
+        Run the app locally or deploy on a server:
+            streamlit run monitoring_app.py
+  
+    Dashboard Overview    
+        The dashboard automatically reads the app.log file.    
+        You can select a time range to analyze (Last 7, 14, 30 days, or All data).    
+        Enable Auto Refresh to update the dashboard every 30 seconds.
+    
+    Key Metrics 
+        View average F1-score, accuracy, ROC AUC.
+        See total predictions and errors.
+        Monitor average data drift status (Normal, Warning, Critical).
+    
+    Visualizations    
+        Prediction Volume Over Time (line chart)
+        Errors Over Time (bar chart)        
+        Model Performance Metrics Over Time (F1, Accuracy, ROC AUC lines)
+        Data Drift Over Time with warning and critical thresholds marked
+    
+    Drift Summary    
+        Shows number of normal, warning, and critical drift days in:
+        Last 7 days (default)
+        Last 90 days        
+        Alerts if warning + critical drift days exceed 25% of total days in last 90 days.
+    
+    Download Logs
+        Download the current app.log file for offline review or auditing.
+
+Notes:
+0. Make sure all the files are located in the same environment.
+1. Ensure app.log is present and updated by the Prediction App for accurate monitoring.
+2. Keep your model file (tuned_classifier.pkl) in the working directory or update the path accordingly.
+3. Customize thresholds or metrics in the monitoring app as needed.
