@@ -1,4 +1,4 @@
-<h1>**Machine Learning-Based Prediction of Employee Attrition**</h1>
+<h1>Machine Learning-Based Prediction of Employee Attrition</h1>
 
 ---
 
