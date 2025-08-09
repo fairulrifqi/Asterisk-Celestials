@@ -1,4 +1,7 @@
-Machine Learning-Based Prediction of Employee Attrition
+<h1>**Machine Learning-Based Prediction of Employee Attrition**</h1>
+
+---
+
 Attrition is a silent business killer. Every employee resignation costs companies not just money, but operational continuity, morale, and hard-earned expertise. As part of Rakamin Data Science Bootcamp Batch 54, my team and I, "Asterisk Celestials", were tasked to tackle this problem for a fictional company, XYZ Co., with a glaring 16.2% annual attrition rate.
 Our objective: Leverage data science to predict which employees are at risk of leaving, reduce attrition in critical roles by 15%, and cut wasted training costs by the same margin.
 
@@ -111,7 +114,8 @@ App Demo: https://asterisk-celestials-ec2jshkd3jgnm9wgsfafhr.streamlit.app/
 Full Documentation & Reports: https://drive.google.com/drive/folders/1nD4RkgzY56v0mcJwQZFFDJIGE6PIKEe4
 Final Report: https://www.canva.com/design/DAGtZqTNnbo/J4eNjTSJrqjBV8NtYTjOcA/edit?utm_content=DAGtZqTNnbo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-…
+---
+
 Contact
 Mail: fairulrifqi962@gmail.com
 LinkedIn: linkedin.com/in/fairulrifqi
